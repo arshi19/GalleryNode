@@ -1,0 +1,19 @@
+<%- include('header')%>
+<%- include('nav')%>
+
+
+<form action="/add" enctype="multipart/form-data"  method="post" class="container w-50 d-flex flex-column" >
+    
+    <h2 class="text-success my-5" >Add Image</h2>
+
+    <input name="title" class="my-3 p-3" type="text" placeholder="Enter Title">
+
+    <input name="author" class="my-3 p-3" type="text" placeholder="Enter Author">
+
+    <input class="my-3 p-3" type="file" name="gallery">
+
+    <button type="submit" class="btn btn-success fs-5">Add</button>
+  </form>
+
+<%- include('footer')%>
+

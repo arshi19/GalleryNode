@@ -1,0 +1,51 @@
+<%- include('header')%>
+    <%- include('nav')%>
+
+
+        <div class="d-flex" style="margin-top:60px;">
+
+            <div class="card" style=" 
+            height: 450px;
+            width: 350px;
+            margin: auto;
+
+            ">
+                <img style="height: 100%; object-fit: cover;" src="/uploads/<%= card.image%>" class="" alt="...">
+
+            </div>
+
+            <form action="/update/<%= card.id%>" enctype="multipart/form-data" method="post"
+                class="container w-50 mt-5 d-flex flex-column bg-blue ms-1 ps-1">
+
+                <input value="<%= card.title%>" name="title" class="my-3 p-3" type="text" placeholder="Enter Title">
+
+                <input value="<%= card.author%>" name="author" class="my-3 p-3" type="text" placeholder="Enter Author">
+
+                <input style="border: 1px solid rgb(139, 139, 139) ;" class="my-3 p-2 w-50 uploadfile" type="file"
+                    name="gallery">
+
+                <input type="hidden" name="oldgallery" id="" value="<%= card.image%>">
+                
+                <img class="preview" style="height: 120px; width:120px; object-fit: cover;" height="100"
+                    src="/uploads/<%= card.image%>" alt="">
+
+                <div class="btn">
+                    <button class="btn w-25 btn-success fs-5">Update Gallery</button>
+                    <a href="/delete/<%= card.id%>" class="btn w-25 btn-danger fs-5">Delete</a>
+                </div>
+
+            </form>
+
+        </div>
+
+        <script>
+            const uploadFile = document.querySelector(".uploadfile");
+            const preview = document.querySelector(".preview");
+            uploadFile.addEventListener("change", function (e) {
+                preview.src = URL.createObjectURL(e.target.files[0]);
+            });
+
+        </script>
+
+
+        <%- include('footer')%>
